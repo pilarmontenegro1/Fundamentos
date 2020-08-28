@@ -1,0 +1,33 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+using namespace std;
+
+int main()
+{
+
+    float horas,costo,iva,salariobruto,salarioneto,descuento;
+    cout<<"Ingrese la cantidad de horas trabajadas al mes: " <<endl;
+    cin>> horas;
+    cout<<"Ingrese el costo por hora: " <<endl;
+    cin>> costo;
+    salariobruto=horas*costo;
+    cout<<"El salario bruto es: " <<salariobruto<<" Bs"<<endl;
+    if (salariobruto>=8272)
+    {
+        descuento= (salariobruto*0.13);
+        cout<< "Descuento del RC-IVA: "<<descuento<<" Bs"<<endl;
+        salarioneto= salariobruto-descuento;
+        cout<< "El salario neto del trabajador (aplicando el RC-IVA) es de: "<<salarioneto<<" Bs";
+    
+    }
+    return 0;
+}
