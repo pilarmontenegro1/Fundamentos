@@ -1,0 +1,45 @@
+// n_enteross.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+void main ()
+{
+	int  mayor,menor,numero, i;
+	float n, promedio, suma;
+	cout<<"CALCULO DE MAYOR, MENOR, Y PROMEDIO DE N NUMEROS"<<endl;
+	cout<< " Ingrese una cantidad de n numeros: ";
+	cin>>n;
+	i=1;
+	suma=0;
+	cout<<" Ingrese un valor: ";
+	cin>>numero;
+	mayor=numero; //se coloca el primer valor pedido
+	menor=numero; //se coloca el primer valor pedido
+	while (i<=n)
+	{
+		i=i+1;
+		suma=suma+numero;
+
+		  if (mayor<numero)
+           mayor=numero;
+        
+          if (menor>numero)
+            menor=numero;
+
+		  if (i<=numero)
+		  {
+            cout<<"Ingrese un valor: ";
+            cin>>numero;
+		  }
+    }
+    cout<<"El mayor es: "<<mayor<<endl;
+    cout<<"El menor es: "<<menor<<endl;
+    cout<<"El promedio es: "<<suma/n;
+    getch ();
+}
