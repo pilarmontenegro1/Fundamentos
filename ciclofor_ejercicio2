@@ -1,0 +1,22 @@
+// X.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+int main()
+{
+   int multi=0, n=0, x=20, i;
+   cout<< "Calcule la tabla de multiplicar de cualquier valor: ";
+   cin>>n;
+
+   for (i=1; i<=x; i++){
+	   multi=n*i;
+	   cout<<n<<"*"<<i<<"="<<multi<<endl;
+   }
+   getch();
+   return 0;
+}
