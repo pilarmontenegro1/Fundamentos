@@ -1,0 +1,26 @@
+// pares.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+int main()
+{
+   int suma=0, n=0,i;
+   cout<< "Ingrese el valor de n: ";
+   cin>>n;
+
+   for (i=1; i<=n; i++){
+	    if (i%2!=0)
+	   {
+	   suma=suma+i;
+	   cout<<" "<<i<<endl;
+	   }
+   }
+   cout<<"La suma de los n_pares es : "<<suma;
+   getch();
+   return 0;
+}
