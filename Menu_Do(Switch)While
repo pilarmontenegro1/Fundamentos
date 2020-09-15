@@ -1,6 +1,10 @@
+// menu.cpp : Defines the entry point for the console application.
+//
+
 #include "stdafx.h"
 #include <iostream>
 #include "conio.h"
+#include "stdlib.h"
 
 using namespace std;
 
@@ -33,4 +37,5 @@ void main()
    cout<< " "<<endl;
    }while (opcion!=0);
    getch();
+   system ("cls");
 }
