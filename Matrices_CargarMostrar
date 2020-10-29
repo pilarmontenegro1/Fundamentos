@@ -1,0 +1,46 @@
+// matrices.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+void cargar(int filas, int columnas,int num[15][15]);
+void mostrar(int filas, int columnas,int n[15][15]);
+
+
+int main()
+{
+	int num[15][15], filas, columnas;
+	cout<<"\tMATRICES"<<endl;
+	cout<<" Ingrese el numero de filas: ";cin>>filas;
+	cout<<" Ingrese el numero de columnas: ";cin>>columnas;
+    cargar(filas, columnas,num);
+	cout<<"Los elementos de la matriz son: "<<endl;
+	mostrar(filas, columnas,num);
+
+
+	getch();
+	return 0;
+}
+
+void cargar(int filas, int columnas,int num[15][15])
+{
+	
+	for (int i=0;i<filas;i++){
+		for (int k=0; k<columnas;k++){
+			cout<<"Ingrese su valor: ["<<i<<"]["<<k<<"]"<<endl;
+			cin>>num[i][k];
+		}
+	}
+		
+}
+void mostrar(int filas, int columnas,int n[15][15]){
+	for (int i=0;i<filas;i++){
+		for (int k=0; k<columnas;k++){
+			cout<<n[i][k]<<endl;
+		}
+	} 
+}
