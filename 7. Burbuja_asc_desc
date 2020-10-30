@@ -1,0 +1,71 @@
+// vectores.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#define MAX 100
+
+using namespace std;
+
+void cargar(int n, int V[]);
+void burbuja_asc(int n, int V[]);
+void burbuja_desc(int n, int V[]);
+void mostrar(int n, int V[]);
+
+int main()
+{   int n, V[MAX];
+	cout<<"\tVECTORES: "<<endl;
+	do{
+	cout<<"Ingrese el tamaño del vector: "<<endl;cin>>n;
+	
+
+
+	}while ((n>MAX) || (n<0));
+	cargar(n, V);
+	burbuja_asc(n,V);
+	mostrar(n,V);
+	burbuja_desc(n,V);
+	mostrar(n,V);
+
+	getch();
+	return 0;
+}
+
+void cargar(int n, int V[]){
+	for (int i=0;i<n; i++)
+	{
+		cout<<"Ingrese el valor del vector: "<<endl;
+		cin>> V[i];}
+	}
+
+void burbuja_asc(int n, int V[]){
+	int aux;
+	for (int i=0;i<n-1; i++)
+		for (int k=i+1; k<n; k++)
+		 if (V[i]>V[k]){
+		   aux=V[i];
+			V[i]=V[k];
+			V[k]=aux;
+			
+		}
+
+void burbuja_desc(int n, int V[]){
+	int aux;
+	for (int i=0;i<n-1; i++)
+		for (int j=i+1; j<n; j++)
+		 if (V[i]<V[j]){
+		   aux=V[i];
+			V[i]=V[j];
+			V[j]=aux;
+			
+		}
+}
+
+void mostrar(int n, int V[]){
+	
+	for (int i=0;i<n; i++){
+		cout<<" Vector["<<i<<"]="<<V[i]<<endl;}
+
+
+}
