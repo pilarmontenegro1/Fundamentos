@@ -1,0 +1,68 @@
+// arraysparalelos.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include "conio.h"
+#define MAX 10
+
+using namespace std;
+
+void cargarnombre(string nombre[],int n);
+void cargar(int nota[],int n);
+void burbuja(int nota[],string nombre[],int n);
+
+void main()
+{
+
+
+	string nombrea[MAX];
+	int notaa[MAX],n;
+	do {
+		cout<<"Ingrese el tamaño de estudiantes: ";
+		cin>>n;
+	}while ((n<=0)||(n>MAX));
+	cargarnombre(nombrea,n);
+	cargar(notaa,n);
+	burbuja(notaa,nombrea,n);
+	cout <<"Las tres mejores notas son:"<<endl;
+	cout <<nombrea[0]<<"    "<<notaa[0]<<endl;
+	cout <<nombrea[1]<<"    "<<notaa[1]<<endl;
+	cout <<nombrea[2]<<"    "<<notaa[2]<<endl;
+	getch();
+}
+
+void cargarnombre(string nombre[],int n)
+{
+for(int i=0;i<n;i++)
+{
+cout<<"Ingrese el nombre del estudiante ["<<i<<"]: "<<endl;
+cin>>nombre[i];
+//getline(cin,nombre[i]);
+}
+
+}
+void cargar(int nota[],int n)
+{
+	for(int i=0;i<n;i++)
+{
+	cout<<"Ingrese la nota del elemento ["<<i<<"]: "<<endl;
+	cin>>nota[i];}
+}
+void burbuja(int nota[],string nombre[], int n)
+{
+	int notaaux;
+	string nombreaux;
+	for (int i=0; i<n-1;i++)
+		for (int j=i; j<n;j++)
+			if (nota[i] < nota[j]) {
+				notaaux=nota[j];
+				nota[j]= nota[i];
+				nota[i]= notaaux;
+				//Cambiando el orden de los Nros de Registro
+				nombreaux=nombre[j];
+				nombre[j]=nombre[i];
+				nombre[i]=nombreaux;
+			}
+}
