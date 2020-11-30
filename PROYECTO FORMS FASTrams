@@ -1,0 +1,116 @@
+Public Class FormFASTrams
+    Private Sub BTNNUEVO_Click(sender As Object, e As EventArgs) Handles BtnNUEVO.Click
+        TxtNombre.Clear()
+        TxtDireccion.Clear()
+        TxtTelefono.Clear()
+        TxtCedula.Clear()
+        DTPNacimiento.Text = Now
+        TxtEmail.Clear()
+        PCTFoto.Image = Nothing
+        PCTFOTOCI.Image = Nothing
+        PCTFOTOCOMPROBANTE.Image = Nothing
+        PCTFOTOCIATRAS.Image = Nothing
+        RadioButtonFEMENINO.Checked = True
+        TxtNombre.Focus()
+    End Sub
+
+    Private Sub BtnSALIR_Click(sender As Object, e As EventArgs) Handles BtnSALIR.Click
+        Dispose()
+    End Sub
+
+    Private Sub Btneliminarfoto_Click(sender As Object, e As EventArgs) Handles Btneliminarfoto.Click
+        PCTFoto.Image = Nothing
+    End Sub
+
+    Private Sub Btnbuscarfoto_Click(sender As Object, e As EventArgs) Handles Btnbuscarfoto.Click
+        Dim AbrirArchivo As New OpenFileDialog
+        AbrirArchivo.Filter = "Imagenes jpg|*.jpg"
+        AbrirArchivo.ShowDialog()
+        If AbrirArchivo.FileName <> "" Then
+            PCTFoto.Image = Image.FromFile(AbrirArchivo.FileName)
+        End If
+    End Sub
+
+    Private Sub BtnbuscarFCI_Click(sender As Object, e As EventArgs) Handles BtnbuscarFCI.Click
+        Dim AbrirArchivo As New OpenFileDialog
+        AbrirArchivo.Filter = "Imagenes jpg|*.jpg"
+        AbrirArchivo.ShowDialog()
+        If AbrirArchivo.FileName <> "" Then
+            PCTFOTOCI.Image = Image.FromFile(AbrirArchivo.FileName)
+        End If
+    End Sub
+
+    Private Sub BtnEliminatFCI_Click(sender As Object, e As EventArgs) Handles BtnEliminatFCI.Click
+        PCTFOTOCI.Image = Nothing
+    End Sub
+
+    Private Sub Btnbuscarfcomp_Click(sender As Object, e As EventArgs) Handles Btnbuscarfcomp.Click
+        Dim AbrirArchivo As New OpenFileDialog
+        AbrirArchivo.Filter = "Imagenes jpg|*.jpg"
+        AbrirArchivo.ShowDialog()
+        If AbrirArchivo.FileName <> "" Then
+            PCTFOTOCOMPROBANTE.Image = Image.FromFile(AbrirArchivo.FileName)
+        End If
+    End Sub
+
+    Private Sub BtnEliminarfcomp_Click(sender As Object, e As EventArgs) Handles BtnEliminarfcomp.Click
+        PCTFOTOCOMPROBANTE.Image = Nothing
+    End Sub
+
+    Private Sub TxtNombre_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtNombre.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            TxtDireccion.Focus()
+        End If
+    End Sub
+
+    Private Sub TxtDireccion_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtDireccion.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            TxtTelefono.Focus()
+        End If
+    End Sub
+
+    Private Sub TxtTelefono_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtTelefono.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            TxtCedula.Focus()
+        End If
+    End Sub
+
+    Private Sub TxtCedula_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtCedula.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            DTPNacimiento.Focus()
+        End If
+    End Sub
+
+    Private Sub DTPNacimiento_KeyDown(sender As Object, e As KeyEventArgs) Handles DTPNacimiento.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            TxtEmail.Focus()
+        End If
+    End Sub
+
+    Private Sub TxtEmail_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtEmail.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            RadioButtonFEMENINO.Focus()
+        End If
+    End Sub
+
+    Private Sub BtnGrabar_Click(sender As Object, e As EventArgs) Handles BtnGrabar.Click
+        Me.DataCLIENTE.Rows.Add(TxtNombre.Text, TxtCedula.Text, TxtTelefono.Text, TxtEmail.Text)
+    End Sub
+
+    Private Sub BtnELIMINAR_Click(sender As Object, e As EventArgs) Handles BtnELIMINAR.Click
+        Me.DataCLIENTE.Rows.Clear()
+    End Sub
+
+    Private Sub BtnBUSCARCIATRAS_Click(sender As Object, e As EventArgs) Handles BtnBUSCARCIATRAS.Click
+        Dim AbrirArchivo As New OpenFileDialog
+        AbrirArchivo.Filter = "Imagenes jpg|*.jpg"
+        AbrirArchivo.ShowDialog()
+        If AbrirArchivo.FileName <> "" Then
+            PCTFOTOCIATRAS.Image = Image.FromFile(AbrirArchivo.FileName)
+        End If
+    End Sub
+
+    Private Sub Btneliminarciatras_Click(sender As Object, e As EventArgs) Handles Btneliminarciatras.Click
+        PCTFOTOCIATRAS.Image = Nothing
+    End Sub
+End Class
