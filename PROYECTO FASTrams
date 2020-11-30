@@ -22,6 +22,7 @@ void trampenales();
 void pausa();
 void error();
 void escribir();
+void confirmacion();
 
 int main()
 {
@@ -75,12 +76,12 @@ int main()
 
 
     } while (opcion != 3);
-    
+
 
     return 0;
 
 }
-bool ingresar(){
+bool ingresar() {
     string nombre;
     string domicilio;
     string celular;
@@ -100,8 +101,8 @@ bool ingresar(){
         fflush(stdin);
         cout << "Ingrese el numero de carnet: ";
         getline(cin, auxCarnet);
-        if (auxCarnet == ""){
-            do{
+        if (auxCarnet == "") {
+            do {
                 cout << "No valido, intentalo nuevamente: ";
                 getline(cin, auxCarnet);
             } while (auxCarnet == "");
@@ -110,16 +111,16 @@ bool ingresar(){
         {
             verificador.seekg(0);
             getline(verificador, carnetUsuario);
-            while (!verificador.eof()){
+            while (!verificador.eof()) {
                 getline(verificador, nombre);
                 getline(verificador, domicilio);
                 getline(verificador, celular);
                 getline(verificador, correoelec);
-                if (carnetUsuario == auxCarnet){
+                if (carnetUsuario == auxCarnet) {
                     coincidencia = true;
                     cout << "Ingreso exitoso" << endl;
                     cout << "Ingresa 0 para continuar " << endl;
-                    cin>> tram2;
+                    cin >> tram2;
                     if (tram2 == 0)
                         do
                         {
@@ -136,7 +137,8 @@ bool ingresar(){
                 coincidencia = false;
 
         } while (coincidencia == true);
-    }else{
+    }
+    else {
         error();
     }
 
@@ -277,6 +279,7 @@ void trampenales() {
     cout << "\t\t\t| Deposito de Bs. 60 a la cuenta bancaria habilitada para su Departamento Banco UNION |" << endl;
     cout << "\t\t\t| Una fotocopia simple de la boleta de deposito |" << endl;
     escribir();
+
 }
 
 void pausa()
@@ -291,11 +294,11 @@ void error()
 }
 void escribir() {
     ofstream archivo;
-    string nombre, apellido, direccion,fechadenacimiento;
+    string nombre, apellido, direccion, fechadenacimiento;
     int telefono, op, op2, cedula, codigo;
     do {
         cout << "1.Empezar trámite de Antecedentes Penales" << endl;
-        cout << "2.Salir" << endl;
+        
         cout << "Elija una opción" << endl;
         cin >> op;
         cin.ignore();
@@ -314,14 +317,13 @@ void escribir() {
             cout << "Fecha de nacimineto (00/00/0000): ";
             getline(cin, fechadenacimiento);
             cout << "Cédula: ";
-            cin>>cedula;
+            cin >> cedula;
             cout << "Telefono: ";
             cin >> telefono;
             cout << "Código del deposito bancario: ";
             cin >> codigo;
 
             cout << "1.- Guardar datos" << endl;
-            cout << "2.- Salir" << endl;
             cout << "Elija una opción" << endl;
             cin >> op2;
 
@@ -334,11 +336,27 @@ void escribir() {
                 archivo << "Teléfono: " << telefono << endl;
                 archivo << "Código del deposito bancario: " << codigo << endl;
                 system("cls");
-                cout << "Datos guardados con éxito..."<<endl;
+                cout << "Datos guardados con éxito..." << endl;
+                confirmacion();
                 system("pause");
                 system("cls");
+
             }
             archivo.close();
         }
     } while (op != 2);
+}
+void confirmacion() {
+    int site;
+    cout << "TRAMITE COMPLETADO EXITOSAMENTE" << endl;
+    cout << "RECIBIRA CONFIRMACIÓN POR MENSAJE" << endl;
+    cout << "Presione 1: " << endl;
+    cin >> site;
+    string baseUrl;
+    if (site == 1) {
+        baseUrl = "https://wa.link/6ikfy7";
+    }
+    string completeUrl = baseUrl;
+    system(std::string("start " + completeUrl).c_str());
+    
 }
